@@ -1,9 +1,12 @@
 
-public class Category
+public enum Category
 {
-    PVP
-    HORROR
-    STORYMODE
-    SPORTS
+    /**
+     * initialise the different categories of games
+     */
+    PVP,
+    HORROR,
+    STORYMODE,
+    SPORTS,
 
 }

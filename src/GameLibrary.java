@@ -1,6 +1,9 @@
-import java.util.ArrayList;
+import java.util.ArrayList; //imports the arraylist to the program
 public class GameLibrary {
-private ArrayList<Game> games;
+    /**
+     * creates a librray to store all the added games
+     */
+    private ArrayList<Game> games;
 public GameLibrary()
 {
     this.games = new ArrayList<Game>();

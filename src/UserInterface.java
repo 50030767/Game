@@ -1,11 +1,12 @@
 public class UserInterface {
     private InputReader reader;
 
-    private GamesLibrary Library;
+    private GameLibrary Library;
 
     public UserInterface()
     {
         this.reader = new InputReader();
+        this.Library = new GameLibrary();
     }
 
     public void showMainMenu()
@@ -46,6 +47,9 @@ public class UserInterface {
 
     public void addGame()
     {
+        /**
+         * allows the user to input a game to store in the GameLibrary
+         */
         System.out.println("Enter the name of the game");
         String title = reader.getInput();
 
@@ -62,8 +66,10 @@ public class UserInterface {
             System.out.println("Invalid download size");
             return;
         }
-        Category aCategory;
-
+        //Category aCategory;
+/**
+ * displays the different categories to the user
+ */
         System.out.println("Select a category");
         System.out.println("1. PVP:");
         System.out.println("2. Horror:");
@@ -76,7 +82,7 @@ public class UserInterface {
 
         try
         {
-            downloadSize = Integer.parseInt(userInput);
+            categoryNumber = Integer.parseInt(userInput);
         }
         catch (NumberFormatException exception)
         {
@@ -84,12 +90,13 @@ public class UserInterface {
             return;
         }
 
-        if (categoryNumber < 1 || categoryNumber > 6)
+        if (categoryNumber <= 0 && categoryNumber > 4)
         {
             System.out.println("That was not a valid option");
             return;
       }
-        category categoryNumber = Category.PVP;
+        Category category = Category.PVP;
+        System.out.println(categoryNumber);
 
         switch (categoryNumber)
         {
@@ -106,14 +113,23 @@ public class UserInterface {
                 category = Category.SPORTS;
                 break;
         }
+        System.out.println(categoryNumber);
 
         Game g = new Game(title, downloadSize, category);
         this.Library.addGame(g);
     }
+
+    /**
+     * allows the user view the games stored in the GameLibrary
+     */
     public void listGames()
     {
         this.Library.showGames();
     }
+
+    /**
+     * displays the number of games available in the GameLibrary
+     */
     public void showGameCount()
     {
         int count = this.Library.gameCount();

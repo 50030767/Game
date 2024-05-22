@@ -17,21 +17,36 @@ public class Game {
 
     }
 
+    /**
+     * Returns the category of the game
+     * @return
+     */
     public Category getCategory()
     {
         return category;
     }
 
+    /**
+     * Returns the title of the game
+     * @return
+     */
     public String getTitle()
     {
         return title;
     }
 
+    /**
+     * returns the download size of the game
+     * @return
+     */
     public int getDownloadSize()
     {
         return downloadSize;
     }
 
+    /**
+     * shows the info of the game added
+     */
     public void showInfo()
     {
         String gInfo = this.getTitle() + "," + this.getCategory() + ", download size;" + this.getDownloadSize() + "size";
